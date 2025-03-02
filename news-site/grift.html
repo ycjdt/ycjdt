@@ -3,8 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>you can just do things</title>
+    <title>You Can Just... Grift? - you can just do things</title>
     <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="blog.css">
     <!-- Lora, regular weight (400) only -->
     <link href="https://fonts.googleapis.com/css2?family=Lora:wght@400&display=swap" rel="stylesheet">
     <!-- Space Mono - a modern monospace font -->
@@ -26,34 +27,39 @@
             </div>
         </div>
     </header>
-    <main>
-        <section class="news-inbox">
-            <a href="grift.html" class="news-item-link">
-                <div class="news-item">
-                    <div class="news-image">
-                        <img src="cd5.jpg" alt="Abstract art - Grift">
-                    </div>
-                    <div class="news-content">
-                        <h3>You Can Just... Grift?</h3>
-                        <p class="news-preview">Distinguishing between genuine builders and opportunistic grifters in the tech ecosystem.</p>
-                        <span class="details">March 03, 2025</span>
-                    </div>
+    <main class="blog-content">
+        <article>
+            <div class="blog-header">
+                <h1>You Can Just... Grift?</h1>
+                <div class="blog-meta">
+                    <span class="blog-date">March 3, 2025</span>
+                    <span class="blog-author">by SF</span>
                 </div>
-            </a>
-            <a href="the-mission.html" class="news-item-link">
-                <div class="news-item">
-                    <div class="news-image">
-                        <img src="cd5.jpg" alt="Abstract art - Why">
-                    </div>
-                    <div class="news-content">
-                        <h3>Why</h3>
-                        <p class="news-preview">The world deserves better context.</p>
-                        <span class="details">March 02, 2025</span>
-                    </div>
-                </div>
-            </a>
-        </section>
+            </div>
+            
+            <div class="blog-body">
+                <p>The "you can just do things" movement has been a breath of fresh air in a world increasingly paralyzed by bureaucracy and risk aversion. It's a call to action, a reminder that progress often comes from those willing to step outside established systems and just build. But as with any movement gaining momentum, there's a shadow side emerging—one where "you can just do things" transforms into "you can just... grift?"</p>
+                
+                <p>We're witnessing a concerning trend: individuals and organizations co-opting the language of building and doing while primarily engaging in activities that extract value rather than create it. The line between genuine builder and opportunistic grifter has never been blurrier. When someone says they're "just building," are they constructing something of value, or constructing elaborate marketing for minimal substance?</p>
+               
+                <p>The tech ecosystem has always had its share of hype cycles and vaporware, but the current landscape presents unique challenges. Social media amplifies voices regardless of substance. Funding flows to compelling narratives sometimes before compelling products. The pressure to "fake it till you make it" has never been stronger, and the tools to create convincing illusions of progress have never been more accessible.</p>
+            
+                <p>This isn't to say that all builders with big promises are grifters. Innovation requires optimism and vision that may seem unrealistic at first glance. The Wright brothers would have sounded delusional describing powered flight before they achieved it. But there's a crucial difference between ambitious vision backed by genuine effort and cynical exploitation of others' hopes and resources.</p>
+
+                <p>So how do we distinguish between the genuine builders and the grifters? A few patterns emerge when examining the landscape. Grifters tend to focus disproportionately on personal brand building rather than product building. They're often more concerned with raising capital than solving problems. They pivot rapidly between unrelated ventures, following funding trends rather than developing deep expertise. And perhaps most tellingly, they're reluctant to engage with legitimate criticism, dismissing skeptics rather than addressing concerns.</p>
+                
+                <p>The "you can just do things" ethos is too valuable to surrender to those who would exploit it. At its best, it represents a powerful antidote to the paralysis that prevents progress across many domains. It reminds us that permission isn't always necessary, that perfect plans rarely survive contact with reality, and that doing often teaches more than endless planning.</p>
+                
+                <p>As we navigate this landscape, we need to maintain our enthusiasm for builders while sharpening our ability to detect when "just doing things" becomes "just grifting things." The future belongs to those who build—but only if we can distinguish between those creating genuine value and those creating only the illusion of it.</p>
+                
+                <p class="signature">- SF</p>
+            </div>
+        </article>
     </main>
+    <footer>
+        <p>&copy; 2025 ycjdt. All rights reserved.</p>
+        <p><a href="index.html">Back to Home</a></p>
+    </footer>
     
     <!-- Subscription Popup -->
     <div id="subscription-overlay" class="overlay">
@@ -66,7 +72,7 @@
             <div class="popup-content">
                 <form id="subscribe-form" action="https://formspree.io/f/mvgzewbl" method="POST">
                     <input type="email" name="email" id="subscriber-email" placeholder="Your email address" required>
-                    <input type="hidden" name="source" value="Home Page">
+                    <input type="hidden" name="source" value="Blog: You Can Just... Grift?">
                     <button type="submit">Subscribe</button>
                 </form>
                 <p id="form-status" class="form-status"></p>
@@ -151,4 +157,4 @@
         });
     </script>
 </body>
-</html>
+</html> 
