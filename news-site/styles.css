@@ -1,0 +1,101 @@
+body {
+    font-family: 'Tasa Orbiter', sans-serif; /* Body text */
+    margin: 0;
+    padding: 0;
+    background-color: #0a1929; /* Deep blue background */
+    color: #e0e0e0; /* Lighter text for better contrast */
+}
+header {
+    background-color: #1e3a8a; /* Darker blue for header */
+    color: white;
+    padding: 15px; /* Slightly more padding */
+    text-align: center;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3); /* Add shadow for depth */
+}
+h1, h2, h3 {
+    font-family: 'Lora', serif; /* Titles */
+    font-weight: 400; /* Regular, not bold */
+}
+h1 {
+    font-family: 'Tasa Orbiter', sans-serif; /* Site title */
+    font-size: 2.5rem; /* Larger main title */
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3); /* Text shadow for emphasis */
+    letter-spacing: 0.5px; /* Slight letter spacing for better readability */
+}
+nav .nav-button {
+    font-family: 'Uncut Plan8 Regular', sans-serif; /* Buttons - fallback until sourced */
+    color: white;
+    margin: 0 15px;
+    text-decoration: none;
+    padding: 8px 15px; /* Larger buttons */
+    border: 1px solid rgba(255, 255, 255, 0.5);
+    border-radius: 5px;
+    transition: all 0.3s ease; /* Smooth transition for hover effects */
+    background-color: rgba(255, 255, 255, 0.1); /* Slight highlight */
+}
+nav .nav-button:hover {
+    background-color: rgba(255, 255, 255, 0.3);
+    transform: translateY(-2px); /* Slight lift effect */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+.featured {
+    text-align: center;
+    padding: 30px;
+    background-color: #132f4c; /* Slightly lighter blue for featured section */
+    margin: 20px;
+    border-radius: 15px;
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.25);
+}
+.featured img {
+    max-width: 100%;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+.featured h2 {
+    font-family: 'Lora', serif; /* Keep story titles in Lora */
+}
+.articles {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 25px;
+    padding: 20px;
+}
+.article {
+    background-color: #1a3a5f; /* Blue article cards */
+    padding: 15px;
+    border-radius: 12px;
+    transition: transform 0.3s, box-shadow 0.3s;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+.article:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+}
+.article img {
+    width: 100%;
+    border-radius: 10px;
+    transition: transform 0.3s;
+}
+.article img:hover {
+    transform: scale(1.05);
+}
+.article h3 {
+    font-family: 'Lora', serif; /* Keep article titles in Lora */
+    font-size: 1.2em;
+    margin: 15px 0 10px;
+    color: #ffffff; /* Brighter title for contrast */
+}
+.article p {
+    color: #b0b0b0; /* Slightly dimmed text */
+    font-size: 0.95em;
+}
+.details {
+    font-family: 'Uncut Plan8 Regular', sans-serif; /* Small details - fallback until sourced */
+    font-size: 0.8em;
+    color: #7a9cc6; /* Highlight color for dates */
+    display: inline-block;
+    margin-top: 10px;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    padding-top: 8px;
+    width: 100%;
+}
