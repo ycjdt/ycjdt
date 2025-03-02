@@ -3,8 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>you can just do things</title>
+    <title>Why - you can just do things</title>
     <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="blog.css">
     <!-- Lora, regular weight (400) only -->
     <link href="https://fonts.googleapis.com/css2?family=Lora:wght@400&display=swap" rel="stylesheet">
     <!-- Space Mono - a modern monospace font -->
@@ -26,22 +27,35 @@
             </div>
         </div>
     </header>
-    <main>
-        <section class="news-inbox">
-            <a href="the-mission.html" class="news-item-link">
-                <div class="news-item">
-                    <div class="news-image">
-                        <img src="cd5.jpg" alt="Abstract art - Why">
-                    </div>
-                    <div class="news-content">
-                        <h3>Why</h3>
-                        <p class="news-preview">The world deserves better context.</p>
-                        <span class="details">March 02, 2025</span>
-                    </div>
+    <main class="blog-content">
+        <article>
+            <div class="blog-header">
+                <h1>Why</h1>
+                <div class="blog-meta">
+                    <span class="blog-date">March 2, 2025</span>
+                    <span class="blog-author">by SF</span>
                 </div>
-            </a>
-        </section>
+            </div>
+            
+            <div class="blog-body">
+                <p>The "you can just do things" ethos is a splendid mantra. It bubbled up in tech over the last couple of years, almost like a spontaneous rebellion against paralysis-by-analysis and red tape. In these respects, its epistemological backbone can be tied to (roughly) 3 things: e/acc, "screw-the-suits" doers, and libertarianism. Naturally, these are all intrinsically linked. </p>
+                
+                <p>In the last twelve months or so, the third category, libertarians, has taken over the space. Thiel acolytes have populated the current administration with a healthy mix of a16z influence. This isn't necessarily a bad thing and it's certainly not the least bit unprecedented— just think back to <a href="https://www.nytimes.com/2008/10/19/business/19gold.html" target="_blank">Government Sachs</a> or the near constant influence of Covington and Kirkland & Ellis in Democratic and Republican administrations (respectively). The corollary is that it gives these folks immense platforms to alter public thought. </p>
+               
+                <p>Thus, its influence on the idea that "you can just do things" can and should be judged. On the one hand, libertarianism's core tenets—Hayek's knowledge problem, Locke's ownership of self, or Mises praxeology—are fundamental to the idea that you can just do things. Yet the deep reliance on government, growing grifting, and emerging straitjacket of right-wing intellectual thought echoes much of the same flaws of previous Democratic and "RINO" administrations. Disagreeing with Trump in Republican circles is tantamount to the public flogging one would receive just a couple years ago for violating social justice norms. Simply put, even as the Overton window shifts, we must be careful it does not go too far. </p>
+            
+                <p>To that end, reading about tech, economics, politics, and understanding how and why progress is made is my passion. As I saw the tech community drift to the right, I also saw the "you can just do things" community emerge. Naturally, it too drifted right. Proponents of liberal democracy and "you can just doing things"—like Paul Graham and Patrick Collison—have been increasingly sidelined, while libertarians like David Sacks and Balaji Srinivasan take the stage. Even former liberals or RINOs (Musk, Andreessen) have drifted far right and become ideologically incoherent, particularly with respect to the freedom they preach; just ask Grok who the largest spreader of misinformation is.</p>
+
+                <p>It is exactly because of this shift that I wanted to write about these topics. American libertarianism in its current form is antithetical to both classical libertarianism (a la Tyler Cowen) and the "you can just do things" ethos. The leaders of Palantir (state surveillance), SpaceX (state rockets), Anduril (state weapons), and others should not be able to separate support for liberal democracy from action and doing. In fact, I would argue that liberal democracy and a well functioning progressive state are absolutely critical to the financial success that has platformed these voices. So pieces here are always opinion pieces, and they are always pro-America. I vehemently disagree with Peter Thiel's belief that freedom and democracy are incompatible. Yet I also aim to not dismiss anyone outright. As Alex Karp put it, "progressive but not woke." That is, I don't care what you say, I care what you do. And you can just do things.                </p>
+                
+                <p class="signature">- SF</p>
+            </div>
+        </article>
     </main>
+    <footer>
+        <p>&copy; 2025 ycjdt. All rights reserved.</p>
+        <p><a href="index.html">Back to Home</a></p>
+    </footer>
     
     <!-- Subscription Popup -->
     <div id="subscription-overlay" class="overlay">
@@ -54,7 +68,7 @@
             <div class="popup-content">
                 <form id="subscribe-form" action="https://formspree.io/f/mvgzewbl" method="POST">
                     <input type="email" name="email" id="subscriber-email" placeholder="Your email address" required>
-                    <input type="hidden" name="source" value="Home Page">
+                    <input type="hidden" name="source" value="Blog: Why">
                     <button type="submit">Subscribe</button>
                 </form>
                 <p id="form-status" class="form-status"></p>
@@ -139,4 +153,4 @@
         });
     </script>
 </body>
-</html>
+</html> 

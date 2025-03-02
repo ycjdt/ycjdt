@@ -3,15 +3,30 @@ body {
     margin: 0;
     padding: 0;
     background-color: #ffffff; /* White background */
-    color: #2c3e50; /* Dark blue-gray text */
+    color: #1e3a5c; /* Lighter navy blue text */
     font-weight: 300; /* Ultra thin text */
 }
 header {
     background-color: #ffffff; /* White header */
-    color: #3498db; /* Blue text */
-    padding: 25px; /* More padding */
+    color: #1e3a5c; /* Lighter navy blue text */
+    padding: 15px 25px 15px; /* Equal padding top and bottom */
     text-align: center;
-    border-bottom: 1px solid #f0f0f0; /* Subtle border */
+    border-bottom: 1px solid #e6e9ed; /* Subtle navy-tinted border */
+}
+.header-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 90%; /* Match the width of news-inbox */
+    margin: 0 auto;
+    position: relative; /* For absolute positioning of subscribe button */
+}
+.title-container {
+    width: 100%; /* Take full width for centering */
+    text-align: center; /* Center the title and subtitle */
+}
+.title-container h1 {
+    /* No special positioning needed */
 }
 h1, h2, h3 {
     font-family: 'Lora', serif; /* Titles */
@@ -19,92 +34,344 @@ h1, h2, h3 {
 }
 h1 {
     font-family: 'Tasa Orbiter', sans-serif; /* Site title */
-    font-size: 2.5rem; /* Larger main title */
-    color: #3498db; /* Blue title */
+    font-size: 2.5rem; /* Smaller main title */
+    color: #1e3a5c; /* Lighter navy blue title */
     letter-spacing: 1px; /* More letter spacing for modern look */
     font-weight: 200; /* Even thinner for title */
+    margin-bottom: 5px; /* Add some space between title and subtitle */
+    text-transform: lowercase; /* Ensure lowercase for ycjdt */
 }
-nav .nav-button {
-    font-family: 'Uncut Plan8 Regular', sans-serif; /* Buttons - fallback until sourced */
-    color: #3498db; /* Blue text */
-    margin: 0 15px;
+
+/* Title link styling */
+.title-container h1 a {
+    color: inherit;
     text-decoration: none;
-    padding: 8px 15px; /* Larger buttons */
-    border: 1px solid #e0e0e0; /* Light gray border */
-    border-radius: 3px; /* Less rounded corners for modern look */
-    transition: all 0.3s ease; /* Smooth transition for hover effects */
-    background-color: transparent; /* Transparent background */
-    font-weight: 300; /* Ultra thin */
 }
-nav .nav-button:hover {
-    background-color: #f8f9fa; /* Very light gray on hover */
-    border-color: #3498db; /* Blue border on hover */
-    color: #2980b9; /* Darker blue on hover */
+
+.title-container h1 a:hover {
+    color: #4a6b96; /* Lighter blue on hover */
 }
-.featured {
-    text-align: center;
-    padding: 40px;
-    background-color: #f8f9fa; /* Very light gray background */
-    margin: 30px;
-    border-radius: 5px; /* Less rounded corners */
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05); /* Subtle shadow */
+
+.subtitle {
+    font-family: 'Lora', serif; /* Changed to Lora font */
+    font-size: 1.2rem;
+    color: #4a6b96; /* Lighter muted navy blue for subtitle */
+    font-weight: 300;
+    margin-top: 15px; /* Increase space after title */
+    margin-bottom: 15px; /* Reduced space before the bottom border */
+    letter-spacing: 0.5px;
+    text-transform: lowercase; /* Make subtitle all lowercase */
 }
-.featured img {
-    max-width: 100%;
-    border-radius: 3px; /* Less rounded corners */
-    filter: brightness(0.7); /* Reduce brightness by 30% */
+.subscribe-container {
+    position: absolute; /* Position absolutely */
+    right: 0; /* Align to the right edge of header-container */
+    top: 50%; /* Center vertically */
+    transform: translateY(-50%); /* Adjust for perfect vertical centering */
 }
-.featured h2 {
-    font-family: 'Lora', serif; /* Keep story titles in Lora */
-    color: #3498db; /* Blue title */
-    font-weight: 300; /* Ultra thin */
+.subscribe-button {
+    font-family: 'Space Mono', monospace; /* Using Space Mono instead of Uncut Plan8 */
+    display: inline-block;
+    padding: 7px 14px; /* Slightly smaller padding */
+    background-color: transparent;
+    color: #1e3a5c; /* Navy blue text */
+    border: 1px solid #1e3a5c; /* Navy blue border */
+    border-radius: 3px;
+    text-decoration: none;
+    font-size: 0.8rem; /* Smaller font size */
+    letter-spacing: 0.5px;
+    transition: all 0.3s ease;
+    text-transform: none; /* Remove lowercase transform to keep the uppercase S */
+    font-weight: 200; /* Ultra thin font weight */
 }
-.articles {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 30px;
-    padding: 30px;
+.subscribe-button:hover {
+    background-color: #1e3a5c; /* Navy blue background on hover */
+    color: white; /* White text on hover */
 }
-.article {
-    background-color: #ffffff; /* White background */
-    padding: 20px;
-    border-radius: 3px; /* Less rounded corners */
-    transition: transform 0.3s, box-shadow 0.3s;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05); /* Subtle shadow */
-    border: 1px solid #f0f0f0; /* Subtle border */
+/* Email inbox style news layout */
+.news-inbox {
+    max-width: 90%; /* Wider to span most of the page */
+    margin: 40px auto 0; /* Increased top margin since we removed featured section */
+    background-color: #ffffff;
+    border-radius: 5px;
+    box-shadow: 0 2px 10px rgba(30, 58, 92, 0.05);
 }
-.article:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+
+.news-item-link {
+    text-decoration: none;
+    color: inherit;
+    display: block;
 }
-.article img {
+
+.news-item {
+    display: flex;
+    padding: 25px 40px; /* Increased padding for wider layout */
+    border-bottom: 1px solid #e6e9ed;
+    transition: background-color 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
+    transform-origin: center;
+}
+.news-item:hover {
+    background-color: #f8f9fa;
+    cursor: pointer;
+    transform: scale(1.01);
+    box-shadow: 0 5px 15px rgba(30, 58, 92, 0.08);
+}
+.news-item:last-child {
+    border-bottom: none;
+}
+.news-image {
+    flex: 0 0 100px; /* Fixed width for image container */
+    margin-right: 30px; /* Increased margin for wider layout */
+}
+.news-image img {
     width: 100%;
-    border-radius: 3px; /* Less rounded corners */
-    transition: transform 0.3s;
+    height: 100px;
+    object-fit: cover;
+    border-radius: 3px;
     filter: brightness(0.7); /* Reduce brightness by 30% */
 }
-.article img:hover {
-    transform: scale(1.02); /* Slightly smaller scale effect */
+.news-content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    padding-right: 40px; /* Add some padding on the right for wider layout */
 }
-.article h3 {
-    font-family: 'Lora', serif; /* Keep article titles in Lora */
-    font-size: 1.2em;
-    margin: 15px 0 10px;
-    color: #3498db; /* Blue title */
-    font-weight: 300; /* Ultra thin */
+.news-content h3 {
+    font-family: 'Lora', serif;
+    font-size: 1.2rem; /* Slightly larger for wider layout */
+    margin: 0 0 10px 0;
+    color: #1e3a5c;
+    font-weight: 300;
 }
-.article p {
-    color: #7f8c8d; /* Light gray text */
-    font-size: 0.95em;
-    line-height: 1.6; /* Better line height for readability */
+.news-content h3 a {
+    color: #1e3a5c;
+    text-decoration: none;
+}
+.news-content h3 a:hover {
+    color: #1e3a5c;
+    text-decoration: none;
+}
+.news-preview {
+    color: #4a6b96;
+    font-size: 0.95rem; /* Slightly larger for wider layout */
+    margin: 0 0 12px 0;
+    line-height: 1.6;
+    /* Truncate long text with ellipsis */
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
 }
 .details {
-    font-family: 'Uncut Plan8 Regular', sans-serif; /* Small details - fallback until sourced */
-    font-size: 0.8em;
-    color: #95a5a6; /* Light blue-gray */
-    display: inline-block;
-    margin-top: 10px;
-    border-top: 1px solid #f0f0f0; /* Very light border */
-    padding-top: 8px;
+    font-family: 'Space Mono', monospace; /* Using Space Mono for dates */
+    font-size: 0.75rem;
+    color: #8da2bf;
+    margin-top: auto; /* Push to bottom of flex container */
+    align-self: flex-start;
+    font-weight: 200; /* Ultra thin font weight */
+}
+/* Make the layout responsive */
+@media (max-width: 768px) {
+    .news-inbox {
+        max-width: 95%;
+    }
+    
+    .news-item {
+        padding: 20px;
+    }
+    
+    .news-image {
+        margin-right: 15px;
+    }
+    
+    .news-content {
+        padding-right: 0;
+    }
+    
+    /* Header responsive adjustments */
+    .header-container {
+        max-width: 95%;
+        flex-direction: column;
+        text-align: center;
+    }
+    
+    .title-container {
+        margin-bottom: 15px;
+    }
+    
+    .subscribe-container {
+        position: static; /* Remove absolute positioning */
+        transform: none;
+        margin-top: 10px;
+    }
+}
+
+@media (max-width: 480px) {
+    .popup {
+        width: 90%;
+        padding: 20px;
+    }
+    .popup-header h2 {
+        font-size: 1.5rem;
+    }
+    
+    /* Further adjustments for very small screens */
+    header {
+        padding: 10px 15px;
+    }
+    
+    h1 {
+        font-size: 2rem;
+    }
+    
+    .subtitle {
+        font-size: 1rem;
+    }
+}
+
+/* Subscription Popup Styles */
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
     width: 100%;
+    height: 100%;
+    background-color: rgba(30, 58, 92, 0.7);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+    backdrop-filter: blur(5px);
+}
+
+.overlay.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+.popup {
+    background-color: white;
+    width: 90%;
+    max-width: 500px;
+    padding: 30px;
+    border-radius: 5px;
+    box-shadow: 0 5px 30px rgba(0, 0, 0, 0.2);
+    position: relative;
+    transform: translateY(-20px);
+    transition: transform 0.3s ease;
+}
+
+.overlay.active .popup {
+    transform: translateY(0);
+}
+
+.popup-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.popup-header h2 {
+    font-family: 'Lora', serif;
+    font-size: 1.8rem;
+    margin: 0;
+    color: #1e3a5c;
+    font-weight: 400;
+}
+
+.close-btn {
+    font-size: 28px;
+    color: #8da2bf;
+    cursor: pointer;
+    transition: color 0.2s ease;
+    line-height: 1;
+}
+
+.close-btn:hover {
+    color: #1e3a5c;
+}
+
+.popup-subtitle {
+    font-family: 'Space Mono', monospace;
+    font-size: 0.9rem;
+    color: #8da2bf;
+    margin-top: 0;
+    margin-bottom: 25px;
+    font-weight: 200;
+}
+
+.popup-content form {
+    display: flex;
+    flex-direction: column;
+}
+
+.popup-content input[type="email"] {
+    padding: 12px 15px;
+    border: 1px solid #e6e9ed;
+    border-radius: 3px;
+    font-family: 'Tasa Orbiter', sans-serif;
+    font-size: 1rem;
+    margin-bottom: 15px;
+}
+
+.popup-content button {
+    font-family: 'Space Mono', monospace;
+    padding: 12px 15px;
+    background-color: #1e3a5c;
+    color: white;
+    border: none;
+    border-radius: 3px;
+    font-size: 0.9rem;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+    font-weight: 200;
+}
+
+.popup-content button:hover {
+    background-color: #2a4d78;
+}
+
+.form-status {
+    margin-top: 15px;
+    font-family: 'Space Mono', monospace;
+    font-size: 0.85rem;
+    text-align: center;
+    font-weight: 200;
+    min-height: 20px;
+}
+
+.form-status.loading {
+    color: #1e3a5c;
+}
+
+.form-status.success {
+    color: #2e7d32;
+}
+
+.form-status.error {
+    color: #c62828;
+}
+
+.no-scroll {
+    overflow: hidden;
+}
+
+/* Spinning globe icon */
+.globe-icon {
+    font-size: 0.7em;
+    display: inline-block;
+    animation: spin-upright 5s linear infinite;
+    vertical-align: middle;
+    margin-right: 5px;
+    filter: grayscale(100%); /* Make it black and white */
+    transform-style: preserve-3d;
+    perspective: 500px;
+}
+
+@keyframes spin-upright {
+    0% { transform: rotateY(0deg); }
+    100% { transform: rotateY(360deg); }
 }
