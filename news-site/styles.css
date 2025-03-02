@@ -2,100 +2,109 @@ body {
     font-family: 'Tasa Orbiter', sans-serif; /* Body text */
     margin: 0;
     padding: 0;
-    background-color: #0a1929; /* Deep blue background */
-    color: #e0e0e0; /* Lighter text for better contrast */
+    background-color: #ffffff; /* White background */
+    color: #2c3e50; /* Dark blue-gray text */
+    font-weight: 300; /* Ultra thin text */
 }
 header {
-    background-color: #1e3a8a; /* Darker blue for header */
-    color: white;
-    padding: 15px; /* Slightly more padding */
+    background-color: #ffffff; /* White header */
+    color: #3498db; /* Blue text */
+    padding: 25px; /* More padding */
     text-align: center;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3); /* Add shadow for depth */
+    border-bottom: 1px solid #f0f0f0; /* Subtle border */
 }
 h1, h2, h3 {
     font-family: 'Lora', serif; /* Titles */
-    font-weight: 400; /* Regular, not bold */
+    font-weight: 300; /* Ultra thin */
 }
 h1 {
     font-family: 'Tasa Orbiter', sans-serif; /* Site title */
     font-size: 2.5rem; /* Larger main title */
-    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3); /* Text shadow for emphasis */
-    letter-spacing: 0.5px; /* Slight letter spacing for better readability */
+    color: #3498db; /* Blue title */
+    letter-spacing: 1px; /* More letter spacing for modern look */
+    font-weight: 200; /* Even thinner for title */
 }
 nav .nav-button {
     font-family: 'Uncut Plan8 Regular', sans-serif; /* Buttons - fallback until sourced */
-    color: white;
+    color: #3498db; /* Blue text */
     margin: 0 15px;
     text-decoration: none;
     padding: 8px 15px; /* Larger buttons */
-    border: 1px solid rgba(255, 255, 255, 0.5);
-    border-radius: 5px;
+    border: 1px solid #e0e0e0; /* Light gray border */
+    border-radius: 3px; /* Less rounded corners for modern look */
     transition: all 0.3s ease; /* Smooth transition for hover effects */
-    background-color: rgba(255, 255, 255, 0.1); /* Slight highlight */
+    background-color: transparent; /* Transparent background */
+    font-weight: 300; /* Ultra thin */
 }
 nav .nav-button:hover {
-    background-color: rgba(255, 255, 255, 0.3);
-    transform: translateY(-2px); /* Slight lift effect */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    background-color: #f8f9fa; /* Very light gray on hover */
+    border-color: #3498db; /* Blue border on hover */
+    color: #2980b9; /* Darker blue on hover */
 }
 .featured {
     text-align: center;
-    padding: 30px;
-    background-color: #132f4c; /* Slightly lighter blue for featured section */
-    margin: 20px;
-    border-radius: 15px;
-    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.25);
+    padding: 40px;
+    background-color: #f8f9fa; /* Very light gray background */
+    margin: 30px;
+    border-radius: 5px; /* Less rounded corners */
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05); /* Subtle shadow */
 }
 .featured img {
     max-width: 100%;
-    border-radius: 10px;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    border-radius: 3px; /* Less rounded corners */
+    filter: brightness(0.7); /* Reduce brightness by 30% */
 }
 .featured h2 {
     font-family: 'Lora', serif; /* Keep story titles in Lora */
+    color: #3498db; /* Blue title */
+    font-weight: 300; /* Ultra thin */
 }
 .articles {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 25px;
-    padding: 20px;
+    gap: 30px;
+    padding: 30px;
 }
 .article {
-    background-color: #1a3a5f; /* Blue article cards */
-    padding: 15px;
-    border-radius: 12px;
+    background-color: #ffffff; /* White background */
+    padding: 20px;
+    border-radius: 3px; /* Less rounded corners */
     transition: transform 0.3s, box-shadow 0.3s;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05); /* Subtle shadow */
+    border: 1px solid #f0f0f0; /* Subtle border */
 }
 .article:hover {
     transform: translateY(-5px);
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
 }
 .article img {
     width: 100%;
-    border-radius: 10px;
+    border-radius: 3px; /* Less rounded corners */
     transition: transform 0.3s;
+    filter: brightness(0.7); /* Reduce brightness by 30% */
 }
 .article img:hover {
-    transform: scale(1.05);
+    transform: scale(1.02); /* Slightly smaller scale effect */
 }
 .article h3 {
     font-family: 'Lora', serif; /* Keep article titles in Lora */
     font-size: 1.2em;
     margin: 15px 0 10px;
-    color: #ffffff; /* Brighter title for contrast */
+    color: #3498db; /* Blue title */
+    font-weight: 300; /* Ultra thin */
 }
 .article p {
-    color: #b0b0b0; /* Slightly dimmed text */
+    color: #7f8c8d; /* Light gray text */
     font-size: 0.95em;
+    line-height: 1.6; /* Better line height for readability */
 }
 .details {
     font-family: 'Uncut Plan8 Regular', sans-serif; /* Small details - fallback until sourced */
     font-size: 0.8em;
-    color: #7a9cc6; /* Highlight color for dates */
+    color: #95a5a6; /* Light blue-gray */
     display: inline-block;
     margin-top: 10px;
-    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    border-top: 1px solid #f0f0f0; /* Very light border */
     padding-top: 8px;
     width: 100%;
 }
