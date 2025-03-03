@@ -19,9 +19,10 @@ document.addEventListener('DOMContentLoaded', function() {
     let blogPosts = [
         {
             title: "You Can Just... Grift?",
-            preview: "In progress...",
-            date: "March 03, 2025",
-            url: "grift.html",
+            preview: "Coming Soon...",
+            date: "Coming Soon",
+            url: "#", // Temporarily disable the link
+            isComingSoon: true, // Flag to indicate this is not yet published
             content: "The 'you can just do things' movement has been a breath of fresh air in a world increasingly paralyzed by bureaucracy and risk aversion. It's a call to action, a reminder that progress often comes from those willing to step outside established systems and just build. But as with any movement gaining momentum, there's a shadow side emerging—one where 'you can just do things' transforms into 'you can just... grift?'"
         },
         {
@@ -35,7 +36,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Full content of blog posts for local testing
     const localBlogContent = {
-        "grift.html": `The 'you can just do things' movement has been a breath of fresh air in a world increasingly paralyzed by bureaucracy and risk aversion. It's a call to action, a reminder that progress often comes from those willing to step outside established systems and just build. But as with any movement gaining momentum, there's a shadow side emerging—one where 'you can just do things' transforms into 'you can just... grift?' 
+        "#": `The 'you can just do things' movement has been a breath of fresh air in a world increasingly paralyzed by bureaucracy and risk aversion. It's a call to action, a reminder that progress often comes from those willing to step outside established systems and just build. But as with any movement gaining momentum, there's a shadow side emerging—one where 'you can just do things' transforms into 'you can just... grift?' 
         
         In the last year, we've seen a surge of projects and personalities that leverage the aesthetics and language of the movement while delivering questionable value. From crypto schemes dressed up as innovation to AI tools that promise revolution but deliver mediocrity, the line between genuine building and opportunistic grifting has blurred.
         
@@ -284,11 +285,36 @@ document.addEventListener('DOMContentLoaded', function() {
                 
                 const link = document.createElement('a');
                 link.className = 'search-result-link';
-                link.href = post.url;
+                
+                // If the post is marked as coming soon, make it non-clickable
+                if (post.isComingSoon) {
+                    link.href = 'javascript:void(0)';
+                    link.style.cursor = 'default';
+                    link.addEventListener('click', function(e) {
+                        e.preventDefault();
+                    });
+                } else {
+                    link.href = post.url;
+                }
                 
                 const title = document.createElement('h3');
                 title.className = 'search-result-title';
                 title.textContent = post.title;
+                
+                // Add a "Coming Soon" badge if the post is not yet published
+                if (post.isComingSoon) {
+                    const badge = document.createElement('span');
+                    badge.className = 'coming-soon-badge';
+                    badge.textContent = 'Coming Soon';
+                    badge.style.fontSize = '0.7rem';
+                    badge.style.backgroundColor = '#e6e9ed';
+                    badge.style.color = '#4a6b96';
+                    badge.style.padding = '2px 6px';
+                    badge.style.borderRadius = '3px';
+                    badge.style.marginLeft = '8px';
+                    badge.style.fontFamily = "'Space Mono', monospace";
+                    title.appendChild(badge);
+                }
                 
                 const preview = document.createElement('p');
                 preview.className = 'search-result-preview';
@@ -299,8 +325,12 @@ document.addEventListener('DOMContentLoaded', function() {
                 // Create a preview that highlights the search term
                 let previewText = '';
                 
+                // For coming soon posts, always use the preview text
+                if (post.isComingSoon) {
+                    previewText = post.preview;
+                }
                 // Check if query is in the full content
-                if (contentToSearch.toLowerCase().includes(query)) {
+                else if (contentToSearch.toLowerCase().includes(query)) {
                     previewText = createHighlightedPreview(contentToSearch, query, 200);
                 } 
                 // Check if query is in the title
