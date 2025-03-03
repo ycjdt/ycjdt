@@ -639,3 +639,40 @@ h1 {
         padding: 15px;
     }
 }
+
+/* Footer styles */
+footer {
+    max-width: 90%;
+    margin: 60px auto 40px;
+    padding: 20px;
+    border-top: 1px solid #e6e9ed;
+    font-family: 'Space Mono', monospace;
+    font-size: 0.9rem;
+    color: #6c7a89;
+    text-align: center;
+    font-weight: 200;
+}
+
+footer a {
+    color: #4a6b96;
+    text-decoration: none;
+    transition: color 0.2s ease;
+}
+
+footer a:hover {
+    color: #1e3a5c;
+    text-decoration: underline;
+}
+
+@media (max-width: 768px) {
+    footer {
+        margin: 40px auto 20px;
+        padding: 15px;
+    }
+}
+
+@media (max-width: 480px) {
+    footer {
+        font-size: 0.8rem;
+    }
+}
