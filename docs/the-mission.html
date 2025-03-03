@@ -20,10 +20,11 @@
     <header>
         <div class="header-container">
             <div class="title-container">
-                <h1><a href="index.html"><span class="globe-icon">🌐</span> ycjdt</a></h1>
+                <h1><a href="/"><span class="globe-icon">🌐</span> ycjdt</a></h1>
                 <p class="subtitle">The latest in people just doing things</p>
             </div>
             <div class="subscribe-container">
+                <button class="search-button" aria-label="Search"></button>
                 <a href="#" class="subscribe-button">Subscribe</a>
             </div>
         </div>
@@ -55,7 +56,7 @@
     </main>
     <footer>
         <p>&copy; 2025 ycjdt. All rights reserved.</p>
-        <p><a href="index.html">Back to Home</a></p>
+        <p><a href="/">Back to Home</a></p>
     </footer>
     
     <!-- Subscription Popup -->
@@ -76,13 +77,34 @@
             </div>
         </div>
     </div>
+    
+    <!-- Search Popup -->
+    <div id="search-overlay" class="overlay">
+        <div class="search-popup">
+            <div class="search-popup-header">
+                <h2>you can just search</h2>
+                <span class="search-close-btn">&times;</span>
+            </div>
+            <div class="search-popup-content">
+                <div class="search-form">
+                    <input type="text" id="search-input" class="search-input" placeholder="Start typing to search..." autocomplete="off">
+                </div>
+                <div id="search-results" class="search-results">
+                    <!-- Search results will be populated here -->
+                </div>
+            </div>
+        </div>
+    </div>
 
+    <script src="search.js"></script>
     <script>
         // Subscription popup functionality
         document.addEventListener('DOMContentLoaded', function() {
             const subscribeBtn = document.querySelector('.subscribe-button');
             const overlay = document.getElementById('subscription-overlay');
             const closeBtn = document.querySelector('.close-btn');
+            const form = document.getElementById('subscribe-form');
+            const formStatus = document.getElementById('form-status');
             
             // Open popup when subscribe button is clicked
             subscribeBtn.addEventListener('click', function(e) {
@@ -106,22 +128,15 @@
             });
             
             // Handle form submission
-            const form = document.getElementById('subscribe-form');
-            const formStatus = document.getElementById('form-status');
-            
             form.addEventListener('submit', function(e) {
                 e.preventDefault();
                 
-                // Show loading message
-                formStatus.textContent = "Subscribing...";
+                formStatus.textContent = "Sending...";
                 formStatus.className = "form-status loading";
                 
-                // Submit the form using Formspree
-                const formData = new FormData(form);
-                
                 fetch(form.action, {
-                    method: 'POST',
-                    body: formData,
+                    method: form.method,
+                    body: new FormData(form),
                     headers: {
                         'Accept': 'application/json'
                     }
