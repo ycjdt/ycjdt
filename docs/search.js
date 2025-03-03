@@ -11,6 +11,10 @@ document.addEventListener('DOMContentLoaded', function() {
     const searchInput = document.getElementById('search-input');
     const searchResults = document.getElementById('search-results');
     
+    // Check if we're running locally or on a web server
+    const isLocalFile = window.location.protocol === 'file:';
+    console.log('Running in', isLocalFile ? 'local file mode' : 'web server mode');
+    
     // Blog posts data structure with initial content
     let blogPosts = [
         {
@@ -29,12 +33,61 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     ];
 
+    // Full content of blog posts for local testing
+    const localBlogContent = {
+        "grift.html": `The 'you can just do things' movement has been a breath of fresh air in a world increasingly paralyzed by bureaucracy and risk aversion. It's a call to action, a reminder that progress often comes from those willing to step outside established systems and just build. But as with any movement gaining momentum, there's a shadow side emerging—one where 'you can just do things' transforms into 'you can just... grift?' 
+        
+        In the last year, we've seen a surge of projects and personalities that leverage the aesthetics and language of the movement while delivering questionable value. From crypto schemes dressed up as innovation to AI tools that promise revolution but deliver mediocrity, the line between genuine building and opportunistic grifting has blurred.
+        
+        The challenge is that distinguishing between the two isn't always straightforward. Many legitimate builders start with imperfect products, and many grifters are skilled at mimicking the language and appearance of authentic creation. The difference often lies not in the initial offering but in the intent and follow-through.
+        
+        True builders are characterized by their commitment to iteration, their responsiveness to feedback, and their genuine desire to solve problems. Grifters, by contrast, are more concerned with maintaining appearances than improving substance. They prioritize marketing over development, hype over utility, and quick profits over sustainable value.
+        
+        This distinction matters because the 'you can just do things' ethos is fundamentally about empowerment and progress. It's about removing unnecessary barriers to creation and innovation. When grifters co-opt this message, they don't just harm individual consumers—they undermine the credibility of the movement itself.
+        
+        So how do we preserve the spirit of 'you can just do things' while guarding against its exploitation? The answer isn't more gatekeeping or bureaucracy—that would contradict the very essence of the movement. Instead, it requires a more discerning approach from both builders and consumers.
+        
+        For builders, this means being transparent about limitations, honest about timelines, and committed to delivering real value. It means recognizing that the freedom to build comes with the responsibility to build ethically.
+        
+        For consumers and investors, it means developing a sharper eye for substance over style. It means asking critical questions: Does this product solve a real problem? Is the team responsive to feedback? Are they more focused on improving their offering or on selling it?
+        
+        The 'you can just do things' movement has the potential to drive meaningful progress in technology, business, and beyond. But realizing that potential requires distinguishing between those who are genuinely building and those who are just grifting. Because while you can just do things, what you choose to do still matters.`,
+        
+        "the-mission.html": `The "you can just do things" ethos is a splendid mantra. It bubbled up in tech over the last couple of years, almost like a spontaneous rebellion against paralysis-by-analysis and red tape. In these respects, its epistemological backbone can be tied to (roughly) 3 things: e/acc, "screw-the-suits" doers, and libertarianism. Naturally, these are all intrinsically linked.
+
+        In the last twelve months or so, the third category, libertarians, has taken over the space. Thiel acolytes have populated the current administration with a healthy mix of a16z influence. This isn't necessarily a bad thing and it's certainly not the least bit unprecedented— just think back to Government Sachs or the near constant influence of Covington and Kirkland & Ellis in Democratic and Republican administrations (respectively). The corollary is that it gives these folks immense platforms to alter public thought.
+        
+        Thus, its influence on the idea that "you can just do things" can and should be judged. On the one hand, libertarianism's core tenets—Hayek's knowledge problem, Locke's ownership of self, or Mises praxeology—are fundamental to the idea that you can just do things. Yet the deep reliance on government, growing grifting, and emerging straitjacket of right-wing intellectual thought echoes much of the same flaws of previous Democratic and "RINO" administrations. Disagreeing with Trump in Republican circles is tantamount to the public flogging one would receive just a couple years ago for violating social justice norms. Simply put, even as the Overton window shifts, we must be careful it does not go too far.
+        
+        To that end, reading about tech, economics, politics, and understanding how and why progress is made is my passion. As I saw the tech community drift to the right, I also saw the "you can just do things" community emerge. Naturally, it too drifted right. Proponents of liberal democracy and "you can just doing things"—like Paul Graham and Patrick Collison—have been increasingly sidelined, while libertarians like David Sacks and Balaji Srinivasan take the stage. Even former liberals or RINOs (Musk, Andreessen) have drifted far right and become ideologically incoherent, particularly with respect to the freedom they preach; just ask Grok who the largest spreader of misinformation is.
+        
+        It is exactly because of this shift that I wanted to write about these topics. American libertarianism in its current form is antithetical to both classical libertarianism (a la Tyler Cowen) and the "you can just do things" ethos. The leaders of Palantir (state surveillance), SpaceX (state rockets), Anduril (state weapons), and others should not be able to separate support for liberal democracy from action and doing. In fact, I would argue that liberal democracy and a well functioning progressive state are absolutely critical to the financial success that has platformed these voices. So pieces here are always opinion pieces, and they are always pro-America. I vehemently disagree with Peter Thiel's belief that freedom and democracy are incompatible. Yet I also aim to not dismiss anyone outright. As Alex Karp put it, "progressive but not woke." That is, I don't care what you say, I care what you do. And you can just do things.`
+    };
+
     // Function to fetch and extract content from blog posts
     async function fetchBlogContent() {
         try {
             console.log('Fetching blog content...');
             
-            // Create an array of promises for all blog posts
+            // If running locally, use the embedded content
+            if (isLocalFile) {
+                console.log('Using embedded content for local testing');
+                
+                blogPosts.forEach(post => {
+                    if (localBlogContent[post.url]) {
+                        post.fullContent = localBlogContent[post.url];
+                        console.log(`Indexed ${post.title} from local content, length: ${post.fullContent.length}`);
+                    } else {
+                        console.warn(`No local content available for ${post.url}`);
+                    }
+                });
+                
+                // Log debug info about indexed content
+                logIndexedContentInfo();
+                return;
+            }
+            
+            // If running on a web server, fetch content normally
             const fetchPromises = blogPosts.map(async (post) => {
                 try {
                     const response = await fetch(post.url);
@@ -64,22 +117,27 @@ document.addEventListener('DOMContentLoaded', function() {
             
             console.log('Blog content indexing completed');
             
-            // Log some debug info about the indexed content
-            blogPosts.forEach(post => {
-                if (post.fullContent) {
-                    // Log a few test keywords to verify content is indexed
-                    const testWords = ['economics', 'tech', 'libertarianism', 'democracy', 'progress'];
-                    testWords.forEach(word => {
-                        const found = post.fullContent.toLowerCase().includes(word.toLowerCase());
-                        console.log(`${post.title} includes '${word}': ${found}`);
-                    });
-                } else {
-                    console.warn(`No full content indexed for ${post.title}`);
-                }
-            });
+            // Log debug info about indexed content
+            logIndexedContentInfo();
         } catch (error) {
             console.error('Error in fetchBlogContent:', error);
         }
+    }
+    
+    // Helper function to log information about indexed content
+    function logIndexedContentInfo() {
+        blogPosts.forEach(post => {
+            if (post.fullContent) {
+                // Log a few test keywords to verify content is indexed
+                const testWords = ['economics', 'tech', 'libertarianism', 'democracy', 'progress', 'anduril', 'palantir', 'thiel'];
+                testWords.forEach(word => {
+                    const found = post.fullContent.toLowerCase().includes(word.toLowerCase());
+                    console.log(`${post.title} includes '${word}': ${found}`);
+                });
+            } else {
+                console.warn(`No full content indexed for ${post.title}`);
+            }
+        });
     }
     
     // Function to extract content from HTML
