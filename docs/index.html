@@ -20,7 +20,7 @@
     <header>
         <div class="header-container">
             <div class="title-container">
-                <h1><a href="/"><span class="globe-icon">🌐</span> ycjdt</a></h1>
+                <h1><a href="/">ycjdt</a></h1>
                 <p class="subtitle">The latest in people just doing things</p>
             </div>
             <div class="subscribe-container">
@@ -59,7 +59,7 @@
     </main>
     
     <footer>
-        <p>&copy; 2025 ycjdt. All rights reserved.</p>
+        <p>2025 ycjdt. All rights reserved.</p>
         <p>Contact: <a href="mailto:sf@ycjdt.com">sf@ycjdt.com</a></p>
     </footer>
     
@@ -70,7 +70,7 @@
                 <h2>you can just subscribe</h2>
                 <span class="close-btn">&times;</span>
             </div>
-            <p class="popup-subtitle">(to the latest ycjdt stories)</p>
+            <p class="popup-subtitle">Join 1 others in just doing things</p>
             <div class="popup-content">
                 <form id="subscribe-form" action="https://formspree.io/f/mvgzewbl" method="POST">
                     <input type="email" name="email" id="subscriber-email" placeholder="Your email address" required>
@@ -102,6 +102,7 @@
 
     <!-- Load search script first to ensure it's available -->
     <script src="search.js"></script>
+    <script src="subscriber-count.js"></script>
     <script>
         // Subscription popup functionality
         document.addEventListener('DOMContentLoaded', function() {
@@ -110,6 +111,9 @@
             const closeBtn = document.querySelector('.close-btn');
             const form = document.getElementById('subscribe-form');
             const formStatus = document.getElementById('form-status');
+            
+            // Update the subscribe button text with the current count
+            updateSubscribeButtonText();
             
             // Open popup when subscribe button is clicked
             subscribeBtn.addEventListener('click', function(e) {
@@ -152,6 +156,10 @@
                         formStatus.textContent = "Thanks for subscribing!";
                         formStatus.className = "form-status success";
                         form.reset();
+                        
+                        // Increment the subscriber count and update the button text
+                        incrementSubscriberCount();
+                        updateSubscribeButtonText();
                         
                         // Close popup after 2 seconds
                         setTimeout(() => {
