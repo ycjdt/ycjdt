@@ -28,9 +28,11 @@ document.addEventListener('DOMContentLoaded', function() {
         {
             title: "Why",
             preview: "The world deserves better context.",
-            date: "March 02, 2025",
+            date: "April 02, 2025",
             url: "the-mission.html",
-            content: "The 'you can just do things' ethos is a splendid mantra. It bubbled up in tech over the last couple of years, almost like a spontaneous rebellion against paralysis-by-analysis and red tape. In these respects, its epistemological backbone can be tied to (roughly) 3 things: e/acc, 'screw-the-suits' doers, and libertarianism. Naturally, these are all intrinsically linked."
+            fullContent: `The "you can just do things" ethos is a splendid mantra. It bubbled up in tech over the last couple of years, almost like a spontaneous rebellion against paralysis-by-analysis and red tape. In these respects, its epistemological backbone can be tied to (roughly) 3 things: e/acc, "screw-the-suits" doers, and libertarianism. Naturally, these are all intrinsically linked. 
+
+        In the last twelve months or so, the third category, libertarians, has taken over the space. Thiel acolytes have populated the current administration with a healthy mix of a16z influence. This isn't necessarily a bad thing and it's certainly not the least bit unprecedented— just think back to Government Sachs or the near constant influence of Covington and Kirkland & Ellis in Democratic and Republican administrations (respectively). The corollary is that it gives these folks immense platforms to alter public thought.`
         }
     ];
 
